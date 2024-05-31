@@ -1,0 +1,13 @@
+.bg {
+    background-image: url('../assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    box-shadow: inset 0px 0px 0 1000px rgba(0, 0, 0, 0.74);
+    overflow: hidden;
+}

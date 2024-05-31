@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="input-holder">
+        <form>
+            <input
+                type="text"
+                class="input"
+                placeholder="Search movies..."
+                [formControl]="searchFormControl"
+            />
+        </form>
+    </div>
+
+    <div>
+        <app-display-movies
+            [movies]="movies"
+            [noMovies]="nothingFound"
+        ></app-display-movies>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+@import '../../../theme/variables.scss';
+
+.container {
+    margin-top: 50px;
+
+    .input-holder {
+        display: flex;
+        justify-content: center;
+
+        .input {
+            border: none;
+            padding: 20px;
+            border-radius: 20px;
+            background: $primary-dark;
+            transition: 0.3s background;
+            width: 400px;
+            font-size: 14px;
+            font-weight: 500;
+            color: $primary-light;
+
+            &::placeholder {
+                color: $primary-light;
+            }
+
+            &:focus {
+                outline-color: $primary-light;
+                background: $primary-light;
+                transition: 0.3s;
+                color: $primary-dark;
+
+                &::placeholder {
+                    color: $primary-dark;
+                }
+            }
+        }
+    }
+}

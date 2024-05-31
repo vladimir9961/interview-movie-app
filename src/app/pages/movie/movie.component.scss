@@ -1,0 +1,29 @@
+@import '../../../theme/variables.scss';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 100px;
+
+    img {
+        max-width: 300px;
+    }
+
+    .genre {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .description {
+        ::ng-deep {
+            p {
+                max-width: 300px;
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+    }
+}

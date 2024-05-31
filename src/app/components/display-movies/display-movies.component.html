@@ -1,0 +1,22 @@
+@if(!noMovies) {
+
+<div class="container">
+    @for (movie of movies; track $index) {
+    <div class="card" [routerLink]="'/movie/' + movie.show?.id">
+        @if(movie.show.image){
+        <img [src]="movie.show.image?.medium" [alt]="movie.show?.name" />
+        } @else {
+        <img
+            class="no-img"
+            src="../../../assets/images/no-pic.jpg"
+            alt="no image"
+        />
+        }
+        <h4 class="title">{{ movie.show?.name }}</h4>
+        <h4 class="summary" [innerHTML]="movie.show?.summary"></h4>
+    </div>
+    }
+</div>
+} @else {
+<h1 class="nothing-found">Nothing Found...</h1>
+}

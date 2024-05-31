@@ -1,0 +1,23 @@
+@if(movieDetails) {
+<div class="container">
+    <div class="img-container">
+        <img [src]="movieDetails.image?.original" alt="poster" />
+    </div>
+
+    <div class="details-container">
+        <h1 class="title">{{ movieDetails?.name }}</h1>
+
+        @for (genre of movieDetails.genres; let last=$last; track $index) {
+
+        <span class="genre">
+            {{ genre }}
+            @if(!last){ , }
+        </span>
+        }
+
+        <h4>Premiered: {{ movieDetails?.premiered }}</h4>
+
+        <div class="description" [innerHTML]="movieDetails?.summary"></div>
+    </div>
+</div>
+}
