@@ -18,33 +18,54 @@
         border-radius: 5px;
     }
 
-    .card {
-        overflow: hidden;
-        cursor: pointer;
-        position: relative;
+    .card-holder {
+        display: flex;
+        justify-content: center;
 
-        .no-img {
-            width: 210px;
-            height: 295px;
-            filter: brightness(0.6);
-        }
+        .card {
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            max-width: 250px;
+            max-height: 350px;
 
-        .title {
-            color: $primary-light;
-            position: absolute;
-            bottom: 50px;
-            left: 10px;
-        }
+            .image {
+                filter: brightness(0.5);
+            }
 
-        .summary {
-            ::ng-deep {
-                p {
-                    color: white;
-                    line-height: 12px;
-                    font-size: 12px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
+            .no-img {
+                width: 210px;
+                height: 295px;
+                filter: brightness(0.6);
+            }
+
+            .title {
+                color: $primary-light;
+                position: absolute;
+                bottom: 50px;
+                left: 10px;
+                max-width: 200px;
+            }
+
+            .summary {
+                ::ng-deep {
+                    p {
+                        color: $primary-light;
+                        line-height: 12px;
+                        font-size: 12px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        max-width: 200px;
+                        height: 24px;
+                    }
+                }
+            }
+
+            &:hover {
+                .image {
+                    filter: brightness(1);
+                    transition: brightness 0.3s ease;
                 }
             }
         }

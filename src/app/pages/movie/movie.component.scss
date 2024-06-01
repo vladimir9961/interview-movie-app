@@ -27,3 +27,11 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .container {
+        display: grid;
+        overflow-y: scroll;
+        gap: 20px;
+    }
+}
