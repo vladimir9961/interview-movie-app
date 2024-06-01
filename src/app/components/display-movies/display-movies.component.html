@@ -2,7 +2,7 @@
 <div class="container">
     @for (movie of movies; track $index) {
     <div class="card-holder">
-        <div class="card" [routerLink]="'/movie/' + movie.show?.id">
+        <div class="card" [routerLink]="'/movie/' + movie.show.id">
             @if(movie.show.image){
             <div class="image-holder">
                 @if (isSetPlaceholder) {
@@ -41,10 +41,10 @@
                 <img
                     class="image"
                     [src]="
-                        movie.show.image?.medium ||
+                        movie.show.image.medium ||
                         '../../../assets/images/no-pic.jpg'
                     "
-                    [alt]="movie.show?.name"
+                    [alt]="movie.show.name"
                 />
                 }
             </div>
@@ -59,8 +59,8 @@
             }
 
             <div class="details">
-                <h4 class="title">{{ movie.show?.name }}</h4>
-                <h4 class="summary" [innerHTML]="movie.show?.summary"></h4>
+                <h4 class="title">{{ movie.show.name }}</h4>
+                <h4 class="summary" [innerHTML]="movie.show.summary"></h4>
             </div>
         </div>
     </div>

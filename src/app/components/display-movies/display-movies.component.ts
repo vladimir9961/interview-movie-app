@@ -6,9 +6,10 @@ import { MoviesSearch } from '../../models/movie.model';
 
 // Pipes
 import { ConvertMinutesPipe } from '../../pipes/minutest-to-hours.pipe';
+import { LoadingService } from '../../services/loadingService.service';
 
 // Services
-import { LoadingService } from '../../services/LoadingService.service';
+
 @Component({
     selector: 'app-display-movies',
     standalone: true,
@@ -30,7 +31,6 @@ export class DisplayMoviesComponent implements OnInit {
 
     public isImagesLoading(): void {
         this.loadingService.loading$.subscribe((res) => {
-            console.log(res);
             this.isSetPlaceholder = res;
         });
     }
