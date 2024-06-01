@@ -9,7 +9,7 @@ import {
     withInterceptorsFromDi,
 } from '@angular/common/http';
 import { ApiEndpointInterceptor } from '../interceptors/api-endpoint.interceptor';
-import { LoadingInterceptor } from '../interceptors/LoadingInterceptor.interceptor';
+import { LoadingInterceptor } from '../interceptors/loadingInterceptor.interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [

@@ -2,7 +2,7 @@
 <div class="container">
     @defer () {
     <div class="img-container">
-        <img [src]="movieDetails.image?.medium" alt="poster" />
+        <img [src]="movieDetails.image.medium" alt="poster" />
     </div>
     } @placeholder{
     <div class="loader-parent">
@@ -11,10 +11,10 @@
     }
 
     <div class="details-container">
-        <h1 class="title">{{ movieDetails?.name }}</h1>
+        <h1 class="title">{{ movieDetails.name }}</h1>
 
         @if(movieDetails.rating.average){
-        <h4>Rating: {{ movieDetails.rating?.average }}</h4>
+        <h4>Rating: {{ movieDetails.rating.average }}</h4>
         }
 
         <h4>{{ movieDetails.runtime | convertMinutes }}</h4>
@@ -29,9 +29,9 @@
             }
         </div>
 
-        <h4>Premiered: {{ movieDetails?.premiered }}</h4>
+        <h4>Premiered: {{ movieDetails.premiered }}</h4>
 
-        <div class="description" [innerHTML]="movieDetails?.summary"></div>
+        <div class="description" [innerHTML]="movieDetails.summary"></div>
     </div>
 </div>
 }
