@@ -33,6 +33,10 @@
             position: relative;
             display: flex;
 
+            .image-holder {
+                width: 71px;
+                height: 100px;
+            }
             .image {
                 filter: brightness(0.5);
                 height: 100px;

@@ -2,7 +2,7 @@
 <div class="container">
     @defer () {
     <div class="img-container">
-        <img [src]="movieDetails.image?.original" alt="poster" />
+        <img [src]="movieDetails.image?.medium" alt="poster" />
     </div>
     } @placeholder{
     <div class="loader-parent">
@@ -13,13 +13,21 @@
     <div class="details-container">
         <h1 class="title">{{ movieDetails?.name }}</h1>
 
-        @for (genre of movieDetails.genres; let last=$last; track $index) {
-
-        <span class="genre">
-            {{ genre }}
-            @if(!last){ , }
-        </span>
+        @if(movieDetails.rating.average){
+        <h4>Rating: {{ movieDetails.rating?.average }}</h4>
         }
+
+        <h4>{{ movieDetails.runtime | convertMinutes }}</h4>
+
+        <div>
+            @for (genre of movieDetails.genres; let last=$last; track $index) {
+
+            <span class="genre">
+                {{ genre }}
+                @if(!last){ , }
+            </span>
+            }
+        </div>
 
         <h4>Premiered: {{ movieDetails?.premiered }}</h4>
 

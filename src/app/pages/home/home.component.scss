@@ -7,29 +7,28 @@
         display: flex;
         justify-content: center;
 
-        .input {
-            border: none;
-            padding: 20px;
-            border-radius: 20px;
-            background: $primary-dark;
-            transition: 0.3s background;
-            width: 400px;
-            font-size: 14px;
-            font-weight: 500;
-            color: $primary-light;
+        form {
+            position: relative;
 
-            &::placeholder {
-                color: $primary-light;
-            }
+            .svg-holder {
+                position: absolute;
+                right: 15px;
+                top: 20px;
 
-            &:focus {
-                outline-color: $primary-light;
-                background: $primary-light;
-                transition: 0.3s;
-                color: $primary-dark;
+                svg {
+                    cursor: pointer;
 
-                &::placeholder {
-                    color: $primary-dark;
+                    path {
+                        filter: contrast(0);
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            fill: $hover-light;
+                        }
+                    }
                 }
             }
         }

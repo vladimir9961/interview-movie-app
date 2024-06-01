@@ -4,17 +4,58 @@
     <div class="card-holder">
         <div class="card" [routerLink]="'/movie/' + movie.show?.id">
             @if(movie.show.image){
-            <img
-                class="image"
-                [src]="movie.show.image?.medium"
-                [alt]="movie.show?.name"
-            />
+            <div class="image-holder">
+                @if (isSetPlaceholder) {
+                <svg
+                    width="71"
+                    height="100"
+                    viewBox="0 0 71 100"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                    <rect width="71" height="100" fill="url(#pattern0_91_13)" />
+                    <defs>
+                        <pattern
+                            id="pattern0_91_13"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                        >
+                            <use
+                                xlink:href="#image0_91_13"
+                                transform="scale(0.0140845 0.01)"
+                            />
+                        </pattern>
+                        <image
+                            id="image0_91_13"
+                            width="71"
+                            height="100"
+                            xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/7QBwUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAFQcAlAAFFBhdHJpY2sgRGF4ZW5iaWNobGVyHAJ4ACVWZWN0b3IgZ3JhcGhpYyBvZiBubyB0aHVtYm5haWwgc3ltYm9sHAJuAAxHZXR0eSBJbWFnZXP/4QBvRXhpZgAASUkqAAgAAAADAA4BAgAlAAAAMgAAABoBBQABAAAAVwAAABsBBQABAAAAXwAAAAAAAABWZWN0b3IgZ3JhcGhpYyBvZiBubyB0aHVtYm5haWwgc3ltYm9sLAEAAAEAAAAsAQAAAQAAAP/hBURodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iPgoJPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KCQk8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOklwdGM0eG1wQ29yZT0iaHR0cDovL2lwdGMub3JnL3N0ZC9JcHRjNHhtcENvcmUvMS4wL3htbG5zLyIgICB4bWxuczpHZXR0eUltYWdlc0dJRlQ9Imh0dHA6Ly94bXAuZ2V0dHlpbWFnZXMuY29tL2dpZnQvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwbHVzPSJodHRwOi8vbnMudXNlcGx1cy5vcmcvbGRmL3htcC8xLjAvIiAgeG1sbnM6aXB0Y0V4dD0iaHR0cDovL2lwdGMub3JnL3N0ZC9JcHRjNHhtcEV4dC8yMDA4LTAyLTI5LyIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgcGhvdG9zaG9wOkNyZWRpdD0iR2V0dHkgSW1hZ2VzIiBHZXR0eUltYWdlc0dJRlQ6QXNzZXRJRD0iMTE0NzU0NDgwNyIgeG1wUmlnaHRzOldlYlN0YXRlbWVudD0iaHR0cHM6Ly93d3cuaXN0b2NrcGhvdG8uY29tL2xlZ2FsL2xpY2Vuc2UtYWdyZWVtZW50P3V0bV9tZWRpdW09b3JnYW5pYyZhbXA7dXRtX3NvdXJjZT1nb29nbGUmYW1wO3V0bV9jYW1wYWlnbj1pcHRjdXJsIiA+CjxkYzpjcmVhdG9yPjxyZGY6U2VxPjxyZGY6bGk+UGF0cmljayBEYXhlbmJpY2hsZXI8L3JkZjpsaT48L3JkZjpTZXE+PC9kYzpjcmVhdG9yPjxkYzpkZXNjcmlwdGlvbj48cmRmOkFsdD48cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPlZlY3RvciBncmFwaGljIG9mIG5vIHRodW1ibmFpbCBzeW1ib2w8L3JkZjpsaT48L3JkZjpBbHQ+PC9kYzpkZXNjcmlwdGlvbj4KPHBsdXM6TGljZW5zb3I+PHJkZjpTZXE+PHJkZjpsaSByZGY6cGFyc2VUeXBlPSdSZXNvdXJjZSc+PHBsdXM6TGljZW5zb3JVUkw+aHR0cHM6Ly93d3cuaXN0b2NrcGhvdG8uY29tL3Bob3RvL2xpY2Vuc2UtZ20xMTQ3NTQ0ODA3LT91dG1fbWVkaXVtPW9yZ2FuaWMmYW1wO3V0bV9zb3VyY2U9Z29vZ2xlJmFtcDt1dG1fY2FtcGFpZ249aXB0Y3VybDwvcGx1czpMaWNlbnNvclVSTD48L3JkZjpsaT48L3JkZjpTZXE+PC9wbHVzOkxpY2Vuc29yPgoJCTwvcmRmOkRlc2NyaXB0aW9uPgoJPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KPD94cGFja2V0IGVuZD0idyI/Pv/bAEMACgcHCAcGCggICAsKCgsOGBAODQ0OHRUWERgjHyUkIh8iISYrNy8mKTQpISIwQTE0OTs+Pj4lLkRJQzxINz0+O//AAAsIAGQARwEBEQD/xAAaAAEBAQEBAQEAAAAAAAAAAAAABAMBAgUG/8QALhAAAgEDAwIDBgcAAAAAAAAAAAECAwQRElGRITEFQZIUIjNUYXIVMkJSYnGh/9oACAEBAAA/AP32p7vkanu+Rqe75Gp7vkanu+Rqe75Gp7vkanu+Rqe75OAAAAAAAAAAAGlOhVq/kg2t/Izaw8AAHYwlN4jFyf0RRGyklqrTjTXLPUZW9OSjRpOrN9E59js69zTuYxqPCTXSPbBhcw0XFRY6ajIAH0qVVxlQhBJQlDLwu7J34hXz+ng5+IV/4+k1pXF3XjKUNGI7o5C5qV6FdVMdIZWERAAvtfep0ZfslKP+E9tbO4lNZworv9TN0ainKOh5j1Z6o3FShGUYYxLc923wrj7CcAF3hzyqkX5dUUWNNQt0/OTyyjCznCzuQXll3q0l/cTC2+FcfYTgAosqkadf3niLTTbKItQioxvopLssI7rfz8fShrfz8fSjNqlTp1pe0RnKccYSwRAAAAAAAAAAAAAAAAAAA//Z"
+                        />
+                    </defs>
+                </svg>
+
+                }@else {
+
+                <img
+                    class="image"
+                    [src]="
+                        movie.show.image?.medium ||
+                        '../../../assets/images/no-pic.jpg'
+                    "
+                    [alt]="movie.show?.name"
+                />
+                }
+            </div>
             } @else {
-            <img
-                class="no-img"
-                src="../../../assets/images/no-pic.jpg"
-                alt="no image"
-            />
+            <div class="image-holder">
+                <img
+                    class="no-img"
+                    src="../../../assets/images/no-pic.jpg"
+                    alt="no image"
+                />
+            </div>
             }
 
             <div class="details">

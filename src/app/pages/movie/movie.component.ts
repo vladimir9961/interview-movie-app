@@ -5,13 +5,14 @@ import { ActivatedRoute } from '@angular/router';
 // Services
 import { TvmazeService } from '../../services/getMovies.service';
 import { Movie } from '../../models/movie.model';
+import { ConvertMinutesPipe } from '../../pipes/minutest-to-hours.pipe';
 
 @Component({
     selector: 'app-movie',
     standalone: true,
-    imports: [],
     templateUrl: './movie.component.html',
     styleUrl: './movie.component.scss',
+    imports: [ConvertMinutesPipe],
 })
 export class MovieComponent {
     private destroyRef = inject(DestroyRef);
@@ -28,7 +29,6 @@ export class MovieComponent {
                 .pipe(takeUntilDestroyed(this.destroyRef))
                 .subscribe((movie) => {
                     this.movieDetails = movie;
-                    console.log(movie);
                 });
         });
     }
