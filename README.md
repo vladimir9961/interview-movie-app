@@ -6,4 +6,4 @@ Installation
 
 2# Run npm install  
 
-Live preview of application here: https://interview-movie-1e4zt40ef-vladimir9961s-projects.vercel.app/
+Live preview of application here: https://interview-movie-app.vercel.app/
