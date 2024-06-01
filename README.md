@@ -1,6 +1,6 @@
 Simple application for finding shows/movies
 
-Installation is simple 
+Installation
 
 1# clone https://github.com/vladimir9961/interview-movie-app.git 
 
