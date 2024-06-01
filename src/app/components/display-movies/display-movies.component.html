@@ -1,6 +1,6 @@
-@if(!noMovies) {
+@if(!noMovies ) { @if(movies.length > 0){
 <div class="container">
-    @defer{ @for (movie of movies; track $index) {
+    @for (movie of movies; track $index) {
     <div class="card-holder">
         <div class="card" [routerLink]="'/movie/' + movie.show?.id">
             @if(movie.show.image){
@@ -16,18 +16,15 @@
                 alt="no image"
             />
             }
-            <h4 class="title">{{ movie.show?.name }}</h4>
-            <h4 class="summary" [innerHTML]="movie.show?.summary"></h4>
+
+            <div class="details">
+                <h4 class="title">{{ movie.show?.name }}</h4>
+                <h4 class="summary" [innerHTML]="movie.show?.summary"></h4>
+            </div>
         </div>
     </div>
-
-    } } @placeholder {
-    <img
-        class="no-img"
-        src="../../../assets/images/no-pic.jpg"
-        alt="no image"
-    />}
+    }
 </div>
-} @else {
+} } @else {
 <h1 class="nothing-found">Nothing Found...</h1>
 }

@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 // Models
 import { MoviesSearch } from '../../models/movie.model';
-import { RouterLink } from '@angular/router';
-
 @Component({
     selector: 'app-display-movies',
     standalone: true,

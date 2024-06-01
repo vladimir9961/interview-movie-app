@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
                     this.nothingFound = true;
                 } else {
                     this.movies = movies;
-                    console.log(movies);
                     this.nothingFound = false;
                 }
             });
