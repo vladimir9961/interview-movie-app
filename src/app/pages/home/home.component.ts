@@ -1,26 +1,48 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import {
+    ReactiveFormsModule,
+    FormControl,
+    FormGroup,
+    FormBuilder,
+} from '@angular/forms';
 
 // Services
 import { TvmazeService } from '../../services/getMovies.service';
 
+// Models
+import { MoviesSearch } from '../../models/movie.model';
+
+// Directives
+import { ClickOutsideDirective } from '../../directives/click-outside.directive';
+
 // Components
 import { DisplayMoviesComponent } from '../../components/display-movies/display-movies.component';
-import { MoviesSearch } from '../../models/movie.model';
+import { InputComponent } from '../../components/input/input.component';
 
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [ReactiveFormsModule, DisplayMoviesComponent],
+    imports: [
+        ReactiveFormsModule,
+
+        ClickOutsideDirective,
+
+        DisplayMoviesComponent,
+        InputComponent,
+    ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-    private tvmazeService = inject(TvmazeService);
     private destroyRef = inject(DestroyRef);
+    public fb = inject(FormBuilder);
 
-    public searchFormControl: FormControl = new FormControl('');
+    private tvmazeService = inject(TvmazeService);
+
+    public searchForm: FormGroup = this.fb.group({
+        searchFormControl: [''],
+    });
 
     public movies: MoviesSearch[] = [];
     public nothingFound: boolean = false;
@@ -44,10 +66,18 @@ export class HomeComponent implements OnInit {
     }
 
     public formSearchValue(): void {
-        this.searchFormControl.valueChanges
+        this.searchForm.controls['searchFormControl'].valueChanges
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((res) => {
                 this.getMovies(res);
             });
+    }
+
+    public removeQueryFromInput(): void {
+        this.searchForm.reset();
+    }
+
+    public onClickedOutside(): void {
+        this.movies = [];
     }
 }
