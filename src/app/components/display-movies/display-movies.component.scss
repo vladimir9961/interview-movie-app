@@ -1,53 +1,110 @@
 @import '../../../theme/variables.scss';
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px;
-    margin-top: 50px;
-    max-height: 750px;
     overflow-y: scroll;
-    padding: 0 10px;
+    padding: 10px;
+    background: $primary-light;
+    width: 400px;
+    border-radius: 8px;
+    margin-top: 10px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
     &::-webkit-scrollbar {
         width: 5px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: $primary-light;
+        background-color: $primary-dark;
         border-radius: 5px;
     }
 
-    .card {
-        overflow: hidden;
-        cursor: pointer;
-        position: relative;
-
-        .no-img {
-            width: 210px;
-            height: 295px;
-            filter: brightness(0.6);
+    .card-holder {
+        &:hover {
+            background: $hover-lighter;
+            transition: background 0.3s ease;
         }
 
-        .title {
-            color: $primary-light;
-            position: absolute;
-            bottom: 50px;
-            left: 10px;
-        }
+        .card {
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            display: flex;
 
-        .summary {
-            ::ng-deep {
-                p {
-                    color: white;
-                    line-height: 12px;
-                    font-size: 12px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
+            .image {
+                filter: brightness(0.5);
+                height: 100px;
+                border-radius: 4px;
+            }
+
+            .no-img {
+                width: 71px;
+                height: 100px;
+                filter: brightness(0.6);
+                border-radius: 4px;
+            }
+
+            .details {
+                width: 100%;
+                padding-left: 10px;
+                padding-top: 5px;
+
+                .title {
+                    color: $primary-dark;
+                    max-width: 200px;
+                }
+
+                .summary {
+                    ::ng-deep {
+                        p {
+                            color: $primary-dark;
+                            line-height: 12px;
+                            font-size: 12px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            max-width: 300px;
+                            height: 24px;
+                            margin-top: 10px;
+                            padding-left: 2px;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .image {
+                    filter: brightness(1);
+                    transition: brightness 0.3s ease;
                 }
             }
         }
+    }
+}
+
+.loader-parent {
+    width: 300px;
+    height: 450px;
+    background: #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+        width: 60px;
+        height: 60px;
+        border: 10px solid #a5a5a54f;
+        border-top-color: #4c4c4c;
+        animation: spin013151 1s linear infinite;
+        border-radius: 100%;
+    }
+}
+
+@keyframes spin013151 {
+    to {
+        transform: rotate(360deg);
     }
 }
 

@@ -1,8 +1,14 @@
 @if(movieDetails) {
 <div class="container">
+    @defer () {
     <div class="img-container">
         <img [src]="movieDetails.image?.original" alt="poster" />
     </div>
+    } @placeholder{
+    <div class="loader-parent">
+        <div class="loader"></div>
+    </div>
+    }
 
     <div class="details-container">
         <h1 class="title">{{ movieDetails?.name }}</h1>

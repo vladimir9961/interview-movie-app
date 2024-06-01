@@ -10,4 +10,35 @@
     position: absolute;
     box-shadow: inset 0px 0px 0 1000px rgba(0, 0, 0, 0.74);
     overflow: hidden;
+    padding-top: 50px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.4);
+    }
 }

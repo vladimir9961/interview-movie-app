@@ -8,22 +8,66 @@
     width: 100%;
     gap: 100px;
 
-    img {
-        max-width: 300px;
+    .img-container {
+        width: 300px;
+        height: 450px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }
 
-    .genre {
-        font-size: 12px;
-        font-weight: 600;
-    }
+    .details-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
-    .description {
-        ::ng-deep {
-            p {
-                max-width: 300px;
-                font-size: 12px;
-                font-weight: 600;
+        .genre {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .description {
+            ::ng-deep {
+                p {
+                    max-width: 300px;
+                    font-size: 12px;
+                    font-weight: 600;
+                }
             }
         }
+    }
+}
+
+.loader-parent {
+    width: 300px;
+    height: 450px;
+    background: #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+        width: 60px;
+        height: 60px;
+        border: 10px solid #a5a5a54f;
+        border-top-color: #4c4c4c;
+        animation: spin013151 1s linear infinite;
+        border-radius: 100%;
+    }
+}
+
+@keyframes spin013151 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        display: grid;
+        overflow-y: scroll;
+        gap: 20px;
     }
 }
